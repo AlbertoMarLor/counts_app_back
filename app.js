@@ -15,5 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 
+//Rutas
+app.use('/api', require('./routes/api', require('./routes/api')));
 
 module.exports = app;
