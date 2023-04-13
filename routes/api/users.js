@@ -6,7 +6,7 @@ const { create, getByEmail, getById } = require('../../models/user.model')
 
 
 //POST /api/usuarios/registro
-router.post('/registro', async (req, res) => {
+router.post('/register', async (req, res) => {
 
     req.body.password = bcrypt.hashSync(req.body.password, 8)
 
