@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getAll, deleteById, getById, create } = require('../../models/groups.model');
+const { getAll, deleteById, getById, create, updateById } = require('../../models/groups.model');
 
 
 
@@ -51,6 +51,21 @@ router.post('/newGroup', async (req, res) => {
 });
 
 
+router.put('/:groupId', async (req, res) => {
+
+    const { groupId } = req.params;
+
+    try {
+
+        await updateById(groupId, req.body);
+        const [group] = await getById(groupId);
+        res.json(group[0]);
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+});
+
+
 router.delete('/:groupId', async (req, res) => {
 
     const { groupId } = req.params;
@@ -69,3 +84,5 @@ router.delete('/:groupId', async (req, res) => {
     }
 
 });
+
+module.exports = router;
