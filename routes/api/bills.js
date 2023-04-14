@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getById, deleteBill, getAll, create } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById } = require('../../models/bills.model');
 
 
 router.get('/', async (req, res) => {
@@ -31,6 +31,8 @@ router.get('/:billId', async (req, res) => {
 })
 
 
+
+
 router.post('/newBill', async (req, res) => {
     try {
         const [result] = await create(req.body)
@@ -41,6 +43,17 @@ router.post('/newBill', async (req, res) => {
     }
 })
 
+
+router.put('/:billId', async (req, res) => {
+    const { billId } = req.params;
+    try {
+        await updateById(billId, req.body);
+        const [bill] = await getById(billId)
+        res.json(bill);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+});
 
 
 router.delete('/:billId', async (req, res) => {

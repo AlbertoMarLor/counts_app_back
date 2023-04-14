@@ -46,16 +46,28 @@ Content-Type: application/json
 GET {{host}}{{urlBills}}
 
 ### GET one Bill
-GET {{host}}{{urlBills}}/18
+GET {{host}}{{urlBills}}/19
 
 ### Create new bill
 POST {{host}}{{urlBills}}/newBill 
 Content-Type: application/json
 
 {
-    "name": "almuerzo",
-    "quantity": 80
+    "name": "cena",
+    "quantity": 100
 }
+
+
+### Make changes in a bill
+PUT {{host}}{{urlBills}}/19
+Content-Type: application/json
+
+{
+    "name": "cena",
+    "quantity": 100,
+    "groups_id": 2
+}
+
 
 ### DELETE one bill
 DELETE {{host}}{{urlBills}}/15
