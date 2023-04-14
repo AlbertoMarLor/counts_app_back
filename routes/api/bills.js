@@ -1,4 +1,17 @@
-const { getById, deleteBill } = require('../../models/bills.model');
+const router = require('express').Router();
+const { getById, deleteBill, getAll, create } = require('../../models/bills.model');
+
+
+router.get('/', async (req, res) => {
+    try {
+        const [bills] = await getAll();
+        res.json(bills);
+    } catch (error) {
+        res.json({ fallo: error.message })
+    }
+});
+
+
 
 router.get('/:billId', async (req, res) => {
     const { billId } = req.params;
@@ -14,6 +27,17 @@ router.get('/:billId', async (req, res) => {
         res.json(bill);
     } catch (error) {
         res.json({ fatal: error.message })
+    }
+})
+
+
+router.post('/newBill', async (req, res) => {
+    try {
+        const [result] = await create(req.body)
+        const [newBill] = await getById(result.insertId)
+        res.json(newBill[0]);
+    } catch (error) {
+        res.json({ fallo: error.message });
     }
 })
 
