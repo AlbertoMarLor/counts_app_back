@@ -33,7 +33,38 @@ Content-Type: application/json
 
 ########### GROUPS ###########
 
+GET {{host}}{{urlGroups}}
 
+###
+
+GET {{host}}{{urlGroups}}/1
+
+###
+
+POST {{host}}{{urlGroups}}/newGroup
+Content-Type: application/json
+
+{
+"name": "alquier",
+"date": "2023-04-14 11:00:00",
+"description":"estos son gastos de alquiler"
+
+
+}
+
+###
+PUT {{host}}{{urlGroups}}/1
+Content-Type: application/json
+
+{
+    "name": "hogar",
+    "date": "2023-02-12 12:00:00",
+    "description":"estos son gastos del hogar"
+}
+
+###
+
+DELETE {{host}}{{urlGroups}}/4
 
 
 
