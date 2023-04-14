@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { createToken } = require('../../helpers/utils');
-const { create, getByEmail, getById } = require('../../models/user.model')
+const { create, getByEmail, getById } = require('../../models/users.model')
 
 
 

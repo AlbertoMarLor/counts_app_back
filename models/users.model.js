@@ -1,5 +1,5 @@
 const create = ({ username, email, password }) => {
-    return debug.query('insert into users (username, email, password) values(?,?,?)', [username, email, password]);
+    return db.query('insert into users (username, email, password) values(?,?,?)', [username, email, password]);
 }
 
 const getByEmail = (email) => {

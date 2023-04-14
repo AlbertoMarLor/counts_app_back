@@ -1,0 +1,28 @@
+@host = http://localhost:3000
+@urlUsers = /api/users
+@urlGroups = /api/groups
+@urlBills = /api/bills
+
+
+
+########### USERS ############
+
+
+
+
+
+
+
+
+
+########### GROUPS ###########
+
+
+
+
+
+
+
+
+
+########### BILLS ############
