@@ -12,6 +12,12 @@ const create = ({ name, quantity }) => {
     );
 }
 
+const getAdmin = () => {
+    return db.query(`SELECT * from counts_app.users, counts_app.users_has_groups WHERE users.id = users_has_groups.users_id AND role = admin`)
+}
+
+
+
 
 const getById = (billId) => {
     return db.query('select * from bills where id = ?', [billId]);
@@ -34,4 +40,4 @@ const deleteBill = (billId) => {
 }
 
 
-module.exports = { getById, deleteBill, getAll, create, updateById }
+module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin }

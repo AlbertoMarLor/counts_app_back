@@ -1,11 +1,11 @@
-const { checkToken } = require('../helpers/middlewares');
+const { checkToken, checkAdmin } = require('../helpers/middlewares');
 
 const router = require('express').Router();
 
 
 router.use('/groups', checkToken, require('./api/group'));
 router.use('/users', require('./api/users'));
-router.use('/bills', require('./api/bills'));
+router.use('/bills', checkToken, require('./api/bills'));
 
 
 

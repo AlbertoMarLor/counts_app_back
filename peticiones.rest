@@ -11,9 +11,9 @@ POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
 {
-    "username": "laura",
-    "email": "laura@gmail.com",
-    "password": "12345"
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin"
 }
 
 ### POST LOGIN
@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "laura@gmail.com",
-    "password": "12345"
+    "email": "admin@gmail.com",
+    "password": "admin"
 }
 
 
@@ -34,37 +34,40 @@ Content-Type: application/json
 ########### GROUPS ###########
 
 GET {{host}}{{urlGroups}}
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 ###
 
 GET {{host}}{{urlGroups}}/1
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 ###
 
 POST {{host}}{{urlGroups}}/newGroup
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 Content-Type: application/json
 
 {
-"name": "alquier",
+"name": "prueba",
 "date": "2023-04-14 11:00:00",
-"description":"estos son gastos de alquiler"
+"description":"estos son gastos de prueba"
 
 
 }
 
 ###
 PUT {{host}}{{urlGroups}}/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 Content-Type: application/json
 
 {
-    "name": "hogar",
+    "name": "coche",
     "date": "2023-02-12 12:00:00",
-    "description":"estos son gastos del hogar"
+    "description":"estos son gastos del coche"
 }
 
 ###
 
-DELETE {{host}}{{urlGroups}}/4
+DELETE {{host}}{{urlGroups}}/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 
 
 
