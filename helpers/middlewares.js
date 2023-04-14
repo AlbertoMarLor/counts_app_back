@@ -1,7 +1,7 @@
 //Todos los middleswares para expres tienen (req(obj entrante), res(respuesta) y next(que siga para adelante la funcion))
 
 const jwt = require('jsonwebtoken');
-const { getById } = require("../models/user.model");
+const { getById } = require("../models/users.model");
 
 const checkToken = async (req, res, next) => {
     if (!req.headers['authorization']) {
