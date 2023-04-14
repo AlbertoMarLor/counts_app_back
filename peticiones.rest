@@ -28,41 +28,15 @@ Content-Type: application/json
 
 
 
+
+
+
 ########### GROUPS ###########
 
 
-GET {{host}}{{urlGroups}}
-
-###
-
-GET {{host}}{{urlGroups}}/1
-
-###
-
-POST {{host}}{{urlGroups}}/newGroup
-Content-Type: application/json
-
-{
-"name": "alquier",
-"date": "2023-04-14 11:00:00",
-"description":"estos son gastos de alquiler"
 
 
-}
 
-###
-PUT {{host}}{{urlGroups}}/1
-Content-Type: application/json
-
-{
-    "name": "hogar",
-    "date": "2023-02-12 12:00:00",
-    "description":"estos son gastos del hogar"
-}
-
-###
-
-DELETE {{host}}{{urlGroups}}/4
 
 
 
@@ -85,13 +59,13 @@ Content-Type: application/json
 
 
 ### Make changes in a bill
-PUT {{host}}{{urlBills}}/19
+PUT {{host}}{{urlBills}}/1
 Content-Type: application/json
 
 {
-    "name": "cena",
-    "quantity": 100,
-    "groups_id": 2
+    "name": "vuelos",
+    "quantity": 200,
+    "groups_id": 1
 }
 
 
