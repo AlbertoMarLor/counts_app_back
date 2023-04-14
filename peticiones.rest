@@ -11,8 +11,8 @@ POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
 {
-    "username": "sara93",
-    "email": "sara@gmail.com",
+    "username": "laura",
+    "email": "laura@gmail.com",
     "password": "12345"
 }
 
@@ -21,7 +21,7 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "sara@gmail.com",
+    "email": "laura@gmail.com",
     "password": "12345"
 }
 
@@ -42,3 +42,32 @@ Content-Type: application/json
 
 
 ########### BILLS ############
+
+GET {{host}}{{urlBills}}
+
+### GET one Bill
+GET {{host}}{{urlBills}}/19
+
+### Create new bill
+POST {{host}}{{urlBills}}/newBill 
+Content-Type: application/json
+
+{
+    "name": "cena",
+    "quantity": 100
+}
+
+
+### Make changes in a bill
+PUT {{host}}{{urlBills}}/19
+Content-Type: application/json
+
+{
+    "name": "cena",
+    "quantity": 100,
+    "groups_id": 2
+}
+
+
+### DELETE one bill
+DELETE {{host}}{{urlBills}}/15
