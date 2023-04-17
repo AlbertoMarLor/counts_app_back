@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "admin"
+    "email": "juanan@gmail.com",
+    "password": "12345"
 }
 
 
@@ -55,12 +55,12 @@ Content-Type: application/json
 
 ###
 
-POST {{host}}{{urlGroups}}/25/addUsers/deborah
+POST {{host}}{{urlGroups}}/25/addUsers/juanan
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzU4NTQsImlhdCI6MTY4MTc0Mzg1NH0.MMeoQ8NxHfeqdr8PUY1yJb5Q4QoAqRz8fGpBN_0q8Lg
 Content-Type: application/json
 
 {
-    "username": "deborah"    
+    "username": "juanan"    
 }
 
 
@@ -94,13 +94,15 @@ GET {{host}}{{urlBills}}
 GET {{host}}{{urlBills}}/19
 
 ### Create new bill
-POST {{host}}{{urlBills}}/20/newBill
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODIxNTg4NzksImlhdCI6MTY4MTcyNjg3OX0.1eIPDp4xK_FipjQ_zZZ1NURJq0w3kB_L5P4LrOMGiIY
+POST {{host}}{{urlBills}}/25/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODIxNzYwOTcsImlhdCI6MTY4MTc0NDA5N30.0qZcVWLTpTOX3zcn65EL-on_2PK7y1Da--In4cc4CxQ
 Content-Type: application/json
 
 {
-    "name": "prueba32",
+    "name": "prueba33",
     "quantity": 200
+   
+
 }
 
 
