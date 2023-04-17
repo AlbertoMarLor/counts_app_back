@@ -8,6 +8,16 @@ const getGroupById = (groupId) => {
     )
 }
 
+const createUsersHasGroups = (userId, groupId) => {
+
+    return db.query(`INSERT INTO counts_app.users_has_groups
+    (users_id,
+    groups_id,
+    role)VALUES(?,?,"admin");`,
+        [userId, groupId])
+}
+
+
 const updateById = (groupId, { name, date, description }) => {
     return db.query(
         `update counts_app.groups set
@@ -38,4 +48,4 @@ const deleteById = (groupId) => {
     )
 }
 
-module.exports = { getAll, create, deleteById, getGroupById, updateById }
+module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups }

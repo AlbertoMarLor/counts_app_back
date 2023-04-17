@@ -83,12 +83,12 @@ GET {{host}}{{urlBills}}
 GET {{host}}{{urlBills}}/19
 
 ### Create new bill
-POST {{host}}{{urlBills}}/4/20/newBill
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
+POST {{host}}{{urlBills}}/20/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNDgzNjUsImlhdCI6MTY4MTcxNjM2NX0.pDUd25ttoCZDg98FFIyAcCNSLEAnk75vwMix19ehMIw
 Content-Type: application/json
 
 {
-    "name": "prueba28",
+    "name": "prueba30",
     "quantity": 200
 }
 

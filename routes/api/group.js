@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getAll, deleteById, getGroupById, create, updateById } = require('../../models/groups.model');
+const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups } = require('../../models/groups.model');
 const { getUserById } = require('../../models/users.model');
 
 
@@ -39,11 +39,13 @@ router.get('/:groupId', async (req, res) => {
 
 router.post('/newGroup', async (req, res) => {
 
-    const { userId } = req.params
+    const userId = req.user.id
+
     try {
         const [newGroup] = await create(req.body);
         const [group] = await getGroupById(newGroup.insertId);
-        //const Id = await getUserById(userId);
+
+        await createUsersHasGroups(userId, newGroup.insertId)
 
 
         res.json(group[0]);

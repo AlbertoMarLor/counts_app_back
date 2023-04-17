@@ -21,7 +21,7 @@ const getUsersHasGroups = (userId, groupId) => {
 }
 
 const createGroupsHasBills = (groups_id, bills_id) => {
-    return db.query(`INSERT INTO counts_app.bills
+    return db.query(`INSERT INTO counts_app.groups_has_bills
         (groups_id,
         bills_id)
         VALUES

@@ -36,10 +36,12 @@ router.get('/:billId', async (req, res) => {
 
 
 
-router.post('/:userId/:groupId/newBill', async (req, res) => {
+router.post('/:groupId/newBill', async (req, res) => {
     try {
         const { groupId } = req.params
-        const { userId } = req.params
+
+        const userId = req.user.id
+
 
         const usersGroups = await getUsersHasGroups(userId, groupId);
 
@@ -47,8 +49,8 @@ router.post('/:userId/:groupId/newBill', async (req, res) => {
 
             const [result] = await create(req.body)
             const [newBill] = await getById(result.insertId)
-            //hay que insertar en la tabla intermedia 
-            //await createGroupsHasBills(groupId, newBill[0].id)
+
+            await createGroupsHasBills(groupId, newBill[0].id)
 
 
             return res.json(newBill[0]);
