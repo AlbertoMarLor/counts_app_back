@@ -17,6 +17,21 @@ const createUsersHasGroups = (userId, groupId) => {
         [userId, groupId])
 }
 
+const getUserByUsername = (username) => {
+    return db.query('SELECT users.id FROM counts_app.users WHERE users.username = ?', [username])
+}
+
+
+
+const addUser = (userId, groupId) => {
+    return db.query(`INSERT INTO counts_app.users_has_groups
+        (users_id,
+        groups_id,
+        role)
+        VALUES 
+        (?,?, "regular");`, [userId, groupId])
+}
+
 
 const updateById = (groupId, { name, date, description }) => {
     return db.query(
@@ -48,4 +63,4 @@ const deleteById = (groupId) => {
     )
 }
 
-module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups }
+module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, getUserByUsername, addUser }

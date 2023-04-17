@@ -22,11 +22,22 @@ const checkToken = async (req, res, next) => {
     next();
 }
 
-const checkAdmin = (req, res, next) => {
-    if (req.users_has_groups.role !== 'admin') {
-        return res.json({ fatal: 'Debes ser admin' })
+const checkAdmin = () => {
+
+    return async (req, res, next) => {
+        const userId = req.user.id
+        const { groupId } = req.params
+
+        const [admin] = await db.query(`SELECT * FROM counts_app.users_has_groups WHERE users_id = ? AND groups_id = ? AND role = "admin"`, [userId, groupId])
+        if (admin.length > 0 && admin[0].role === "admin") {
+            return next()
+        }
+
+
+        res.json({ fatal: 'Debes ser Admin' })
+
     }
-    next();
+
 }
 
 

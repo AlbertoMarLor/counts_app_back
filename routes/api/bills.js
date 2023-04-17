@@ -40,24 +40,13 @@ router.post('/:groupId/newBill', async (req, res) => {
     try {
         const { groupId } = req.params
 
-        const userId = req.user.id
+        const [result] = await create(req.body)
+        const [newBill] = await getById(result.insertId)
 
+        await createGroupsHasBills(groupId, newBill[0].id)
 
-        const usersGroups = await getUsersHasGroups(userId, groupId);
+        return res.json(newBill[0]);
 
-        if ([usersGroups][0][0].length !== 0) {
-
-            const [result] = await create(req.body)
-            const [newBill] = await getById(result.insertId)
-
-            await createGroupsHasBills(groupId, newBill[0].id)
-
-
-            return res.json(newBill[0]);
-
-        }
-
-        res.json('El ID del usuario y/o el grupo no coinciden o no es Admin')
 
     } catch (error) {
         res.json({ fallo: error.message });
