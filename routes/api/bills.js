@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { getById, deleteBill, getAll, create, updateById } = require('../../models/bills.model');
+
+
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills } = require('../../models/bills.model');
+const { getUserById } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {
@@ -33,11 +36,27 @@ router.get('/:billId', async (req, res) => {
 
 
 
-router.post('/newBill', async (req, res) => {
+router.post('/:userId/:groupId/newBill', async (req, res) => {
     try {
-        const [result] = await create(req.body)
-        const [newBill] = await getById(result.insertId)
-        res.json(newBill[0]);
+        const { groupId } = req.params
+        const { userId } = req.params
+
+        const usersGroups = await getUsersHasGroups(userId, groupId);
+
+        if ([usersGroups][0][0].length !== 0) {
+
+            const [result] = await create(req.body)
+            const [newBill] = await getById(result.insertId)
+            //hay que insertar en la tabla intermedia 
+            //await createGroupsHasBills(groupId, newBill[0].id)
+
+
+            return res.json(newBill[0]);
+
+        }
+
+        res.json('El ID del usuario y/o el grupo no coinciden o no es Admin')
+
     } catch (error) {
         res.json({ fallo: error.message });
     }

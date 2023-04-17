@@ -46,7 +46,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 Content-Type: application/json
 
 {
-"name": "prueba",
+"name": "prueba18",
 "date": "2023-04-14 11:00:00",
 "description":"estos son gastos de prueba"
 
@@ -83,12 +83,13 @@ GET {{host}}{{urlBills}}
 GET {{host}}{{urlBills}}/19
 
 ### Create new bill
-POST {{host}}{{urlBills}}/newBill 
+POST {{host}}{{urlBills}}/4/20/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 Content-Type: application/json
 
 {
-    "name": "cena",
-    "quantity": 100
+    "name": "prueba28",
+    "quantity": 200
 }
 
 

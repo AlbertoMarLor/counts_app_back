@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const { getAll, deleteById, getById, create, updateById } = require('../../models/groups.model');
-
+const { getAll, deleteById, getGroupById, create, updateById } = require('../../models/groups.model');
+const { getUserById } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {
@@ -22,7 +22,7 @@ router.get('/:groupId', async (req, res) => {
 
     const { groupId } = req.params;
     try {
-        const [result] = await getById(groupId);
+        const [result] = await getGroupById(groupId);
         if (result.length === 0) {
             return res.json({ fatal: 'No existe pelicula con ese ID' })
         }
@@ -39,10 +39,13 @@ router.get('/:groupId', async (req, res) => {
 
 router.post('/newGroup', async (req, res) => {
 
-
+    const { userId } = req.params
     try {
         const [newGroup] = await create(req.body);
-        const [group] = await getById(newGroup.insertId);
+        const [group] = await getGroupById(newGroup.insertId);
+        //const Id = await getUserById(userId);
+
+
         res.json(group[0]);
     } catch (error) {
         res.json({ fatal: error.message })
@@ -58,7 +61,7 @@ router.put('/:groupId', async (req, res) => {
     try {
 
         await updateById(groupId, req.body);
-        const [group] = await getById(groupId);
+        const [group] = await getGroupById(groupId);
         res.json(group[0]);
     } catch (error) {
         res.json({ fatal: error.message })
@@ -70,7 +73,7 @@ router.delete('/:groupId', async (req, res) => {
 
     const { groupId } = req.params;
     try {
-        const [group] = await getById(groupId);
+        const [group] = await getGroupById(groupId);
         if (group.length === 0) {
             return res.json({ fatal: 'No existe un grupo con ese ID' });
 

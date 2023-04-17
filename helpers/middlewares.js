@@ -1,7 +1,7 @@
 //Todos los middleswares para expres tienen (req(obj entrante), res(respuesta) y next(que siga para adelante la funcion))
 
 const jwt = require('jsonwebtoken');
-const { getById } = require("../models/users.model");
+const { getUserById } = require("../models/users.model");
 
 const checkToken = async (req, res, next) => {
     if (!req.headers['authorization']) {
@@ -16,7 +16,7 @@ const checkToken = async (req, res, next) => {
         res.json({ fallo: 'error en el token' })
     }
 
-    const [result] = await getById(obj.user_id);
+    const [result] = await getUserById(obj.user_id);
     req.user = result[0].username;
 
     next();

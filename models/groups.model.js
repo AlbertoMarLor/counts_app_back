@@ -2,7 +2,7 @@ const getAll = () => {
     return db.query('SELECT * FROM counts_app.groups');
 }
 
-const getById = (groupId) => {
+const getGroupById = (groupId) => {
     return db.query('select * from counts_app.groups where id = ?',
         [groupId]
     )
@@ -38,4 +38,4 @@ const deleteById = (groupId) => {
     )
 }
 
-module.exports = { getAll, create, deleteById, getById, updateById }
+module.exports = { getAll, create, deleteById, getGroupById, updateById }
