@@ -6,8 +6,8 @@ const getByEmail = (email) => {
     return db.query('select * from users where email = ?', [email]);
 }
 
-const getById = (userId) => {
+const getUserById = (userId) => {
     return db.query('select * from users where id = ?', [userId]);
 }
 
-module.exports = { create, getByEmail, getById }
+module.exports = { create, getByEmail, getUserById }

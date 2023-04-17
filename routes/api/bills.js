@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { getById, deleteBill, getAll, create, updateById } = require('../../models/bills.model');
+
+
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills } = require('../../models/bills.model');
+const { getUserById } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {
@@ -33,11 +36,18 @@ router.get('/:billId', async (req, res) => {
 
 
 
-router.post('/newBill', async (req, res) => {
+router.post('/:groupId/newBill', async (req, res) => {
     try {
+        const { groupId } = req.params
+
         const [result] = await create(req.body)
         const [newBill] = await getById(result.insertId)
-        res.json(newBill[0]);
+
+        await createGroupsHasBills(groupId, newBill[0].id)
+
+        return res.json(newBill[0]);
+
+
     } catch (error) {
         res.json({ fallo: error.message });
     }

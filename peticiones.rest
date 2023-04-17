@@ -11,9 +11,9 @@ POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "email": "admin@gmail.com",
-    "password": "admin"
+    "username": "juanan",
+    "email": "juanan@gmail.com",
+    "password": "12345"
 }
 
 ### POST LOGIN
@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "password": "admin"
+    "email": "juanan@gmail.com",
+    "password": "12345"
 }
 
 
@@ -42,32 +42,48 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 ###
 
 POST {{host}}{{urlGroups}}/newGroup
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzIyOTIsImlhdCI6MTY4MTc0MDI5Mn0.6sFuu8BceLE-D52ETPLg9tVeg2IaOPHQYAdmMPk-7fw
 Content-Type: application/json
 
 {
-"name": "prueba",
+"name": "nuevoGrupo",
 "date": "2023-04-14 11:00:00",
-"description":"estos son gastos de prueba"
+"description":"estos son gastos de sdfbsduf"
 
 
 }
 
 ###
+<<<<<<< HEAD
 PUT {{host}}{{urlGroups}}/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
+=======
+
+POST {{host}}{{urlGroups}}/25/addUsers/juanan
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzU4NTQsImlhdCI6MTY4MTc0Mzg1NH0.MMeoQ8NxHfeqdr8PUY1yJb5Q4QoAqRz8fGpBN_0q8Lg
+>>>>>>> feature/adminQuery
 Content-Type: application/json
 
 {
-    "name": "coche",
+    "username": "juanan"    
+}
+
+
+###
+PUT {{host}}{{urlGroups}}/24
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzMyOTQsImlhdCI6MTY4MTc0MTI5NH0.qjizAAcDQlxVvGu8Y5dwJT0SXhPM-yIrtXSCTGdwmrE
+Content-Type: application/json
+
+{
+    "name": "jojojjojo",
     "date": "2023-02-12 12:00:00",
-    "description":"estos son gastos del coche"
+    "description":"estos son gastos del jojojojo"
 }
 
 ###
 
-DELETE {{host}}{{urlGroups}}/5
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
+DELETE {{host}}{{urlGroups}}/24
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzMyOTQsImlhdCI6MTY4MTc0MTI5NH0.qjizAAcDQlxVvGu8Y5dwJT0SXhPM-yIrtXSCTGdwmrE
 
 
 
@@ -88,8 +104,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2
 Content-Type: application/json
 
 {
-    "name": "cena",
-    "quantity": 100
+    "name": "prueba33",
+    "quantity": 200
+   
+
 }
 
 
