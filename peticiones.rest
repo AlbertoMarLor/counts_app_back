@@ -55,7 +55,7 @@ Content-Type: application/json
 
 ###
 PUT {{host}}{{urlGroups}}/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
 Content-Type: application/json
 
 {
@@ -84,6 +84,7 @@ GET {{host}}{{urlBills}}/19
 
 ### Create new bill
 POST {{host}}{{urlBills}}/newBill 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
 Content-Type: application/json
 
 {
