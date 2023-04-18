@@ -54,7 +54,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}{{urlGroups}}/edit/1
+POST {{host}}{{urlGroups}}2/adduser/juanan
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
 Content-Type: application/json
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}{{urlGroups}}/24
+PUT {{host}}{{urlGroups}}/edit/24
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzMyOTQsImlhdCI6MTY4MTc0MTI5NH0.qjizAAcDQlxVvGu8Y5dwJT0SXhPM-yIrtXSCTGdwmrE
 Content-Type: application/json
 

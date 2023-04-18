@@ -57,7 +57,7 @@ router.post('/newGroup', async (req, res) => {
 });
 
 
-router.post('/:groupId/addUsers/:username', checkAdmin(), async (req, res) => {
+router.post('/:groupId/addUser/:username', checkAdmin(), async (req, res) => {
 
 
     try {
