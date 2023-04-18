@@ -87,7 +87,7 @@ router.post('/:groupId/addUsers/:username', checkAdmin(), async (req, res) => {
 )
 
 
-router.put('/:groupId', checkAdmin(), async (req, res) => {
+router.put('/edit/:groupId', checkAdmin(), async (req, res) => {
 
     try {
         const { groupId } = req.params;

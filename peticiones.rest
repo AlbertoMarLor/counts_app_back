@@ -54,14 +54,8 @@ Content-Type: application/json
 }
 
 ###
-<<<<<<< HEAD
-PUT {{host}}{{urlGroups}}/1
+PUT {{host}}{{urlGroups}}/edit/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
-=======
-
-POST {{host}}{{urlGroups}}/25/addUsers/juanan
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzU4NTQsImlhdCI6MTY4MTc0Mzg1NH0.MMeoQ8NxHfeqdr8PUY1yJb5Q4QoAqRz8fGpBN_0q8Lg
->>>>>>> feature/adminQuery
 Content-Type: application/json
 
 {
@@ -112,7 +106,7 @@ Content-Type: application/json
 
 
 ### Make changes in a bill
-PUT {{host}}{{urlBills}}/1
+PUT {{host}}{{urlBills}}/edit/1
 Content-Type: application/json
 
 {
