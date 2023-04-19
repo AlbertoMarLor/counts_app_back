@@ -6,9 +6,9 @@ const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGrou
 
 
 router.get('/', async (req, res) => {
-
+    const userId = req.user.id
     try {
-        const [groups] = await getAll();
+        const [groups] = await getAll(userId);
 
         res.json(groups);
     } catch (error) {
@@ -25,7 +25,7 @@ router.get('/:groupId', async (req, res) => {
     try {
         const [result] = await getGroupById(groupId);
         if (result.length === 0) {
-            return res.json({ fatal: 'No existe pelicula con ese ID' })
+            return res.json({ fatal: 'There is not group with that ID' })
         }
         res.json(result[0]);
     } catch (error) {

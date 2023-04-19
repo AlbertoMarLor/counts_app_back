@@ -1,5 +1,8 @@
-const getAll = () => {
-    return db.query('SELECT * FROM counts_app.groups');
+const getAll = (userId) => {
+    return db.query(`SELECT g.id, g.name, g.date, g.description FROM counts_app.users_has_groups as uhg
+    JOIN counts_app.groups as g ON groups_id = g.id
+    JOIN counts_app.users as u ON users_id = u.id 
+    WHERE u.id = ?;`, [userId]);
 }
 
 const getGroupById = (groupId) => {

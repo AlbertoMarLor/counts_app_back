@@ -29,6 +29,7 @@ const checkAdmin = () => {
         const { groupId } = req.params
 
         const [admin] = await db.query(`SELECT * FROM counts_app.users_has_groups WHERE users_id = ? AND groups_id = ? AND role = "admin"`, [userId, groupId])
+        console.log(groupId);
         if (admin.length > 0 && admin[0].role === "admin") {
             return next()
         }
