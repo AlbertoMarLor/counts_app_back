@@ -87,6 +87,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 
 ########### BILLS ############
 
+
+### COSAS PENDIENTES: GET {{host}}/groups/:groupId/{{urlBills}}
 GET {{host}}{{urlBills}}
 
 ### GET one Bill
