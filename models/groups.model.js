@@ -62,4 +62,9 @@ const deleteById = (groupId) => {
     )
 }
 
-module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser }
+const findUser = ({ word }) => {
+    console.log(word);
+    return db.query("SELECT * FROM counts_app.users WHERE users.username LIKE '%" + word + "%'")
+}
+
+module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser, findUser }
