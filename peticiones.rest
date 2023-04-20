@@ -21,11 +21,19 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "juanan@gmail.com",
-    "password": "12345"
+    "email": "Lida@gmail.com",
+    "password": "Lida1"
 }
 
+###
 
+GET {{host}}{{urlGroups}}/edit/37/addUsers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI0MTI3ODYsImlhdCI6MTY4MTk4MDc4Nn0.UwBCmhobbbVPUXaS6tCpU16-k1XJ0YSnJuVfsFuRdqo
+Content-Type: application/json
+
+{
+    "username":"le"
+}
 
 
 
@@ -42,7 +50,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 ###
 
 POST {{host}}{{urlGroups}}/newGroup
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzIyOTIsImlhdCI6MTY4MTc0MDI5Mn0.6sFuu8BceLE-D52ETPLg9tVeg2IaOPHQYAdmMPk-7fw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI0MDg0NzAsImlhdCI6MTY4MTk3NjQ3MH0.WXOdBVJU4eLJ3PJp2tezAIZI2VxuF0h33j9SNWfLIoA
 Content-Type: application/json
 
 {
@@ -54,8 +62,8 @@ Content-Type: application/json
 }
 
 ###
-POST {{host}}{{urlGroups}}2/adduser/juanan
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
+POST {{host}}{{urlGroups}}/37/adduser/juanan
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI0MDg0NzAsImlhdCI6MTY4MTk3NjQ3MH0.WXOdBVJU4eLJ3PJp2tezAIZI2VxuF0h33j9SNWfLIoA
 Content-Type: application/json
 
 {

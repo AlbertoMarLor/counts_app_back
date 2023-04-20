@@ -62,4 +62,4 @@ const deleteById = (groupId) => {
     )
 }
 
-module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, getUserByUsername, addUser }
+module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser }

@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { checkAdmin } = require('../../helpers/middlewares');
 const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser } = require('../../models/groups.model');
-const { getUserByUsername } = require('../../models/users.model');
+const { getUserByUsername, findUser } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {
@@ -119,6 +119,23 @@ router.delete('/:groupId', checkAdmin(), async (req, res) => {
     }
 
 });
+
+
+router.get('/edit/:groupId/addUsers', async (req, res) => {
+
+    try {
+
+        const user = await findUser(req.body)
+
+        res.json(user[0])
+
+
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+
+
+})
 
 
 module.exports = router;
