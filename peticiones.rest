@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "Lida@gmail.com",
-    "password": "Lida1"
+    "email": "fran@gmail.com",
+    "password": "Fran1"
 }
 
 ###
@@ -96,11 +96,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 ########### BILLS ############
 
 
-### COSAS PENDIENTES: GET {{host}}/groups/:groupId/{{urlBills}}
-GET {{host}}{{urlBills}}
+### COSAS PENDIENTES: 
+GET {{host}}{{urlGroups}}/bills/20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0MzIwMDcsImlhdCI6MTY4MjAwMDAwN30.QPtxMwwn_c6nypQDFiiVb0JMIET2qtxZKF0Gi1m8Mvo
 
 ### GET one Bill
 GET {{host}}{{urlBills}}/19
+
 
 ### Create new bill
 POST {{host}}{{urlBills}}/newBill 

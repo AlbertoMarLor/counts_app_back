@@ -5,9 +5,10 @@ const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, crea
 const { getUserById } = require('../../models/users.model');
 
 
-router.get('/', async (req, res) => {
+router.get('/:groupId', async (req, res) => {
     try {
-        const [bills] = await getAll();
+        const { groupId } = req.params
+        const [bills] = await getAll(groupId);
         res.json(bills);
     } catch (error) {
         res.json({ fallo: error.message })

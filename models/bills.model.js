@@ -1,5 +1,8 @@
-const getAll = () => {
-    return db.query('select * from counts_app.bills');
+const getAll = (groupId) => {
+    return db.query(`SELECT b.id, b.name, b.date, b.quantity FROM counts_app.groups_has_bills as ghb
+    JOIN counts_app.groups as g ON groups_id = g.id
+    JOIN counts_app.bills as b ON bills_id = b.id 
+    WHERE g.id = ?;`, [groupId]);
 }
 
 const create = ({ name, quantity }) => {

@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 router.use('/groups', checkToken, require('./api/group'));
 router.use('/users', require('./api/users'));
-router.use('/bills', checkToken, require('./api/bills'));
+router.use('/groups/bills', checkToken, require('./api/bills'));
 
 
 
