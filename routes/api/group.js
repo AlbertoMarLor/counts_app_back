@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const { checkAdmin } = require('../../helpers/middlewares');
-const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, getUserByUsername, addUser } = require('../../models/groups.model');
-
+const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser } = require('../../models/groups.model');
+const { getUserByUsername } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {

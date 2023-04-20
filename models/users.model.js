@@ -10,4 +10,8 @@ const getUserById = (userId) => {
     return db.query('select * from users where id = ?', [userId]);
 }
 
-module.exports = { create, getByEmail, getUserById }
+const getUserByUsername = (username) => {
+    return db.query('SELECT users.id FROM counts_app.users WHERE users.username = ?', [username])
+}
+
+module.exports = { create, getByEmail, getUserById, getUserByUsername }

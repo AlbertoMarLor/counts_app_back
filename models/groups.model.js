@@ -20,10 +20,6 @@ const createUsersHasGroups = (userId, groupId) => {
         [userId, groupId])
 }
 
-const getUserByUsername = (username) => {
-    return db.query('SELECT users.id FROM counts_app.users WHERE users.username = ?', [username])
-}
-
 
 
 const addUser = (userId, groupId) => {
