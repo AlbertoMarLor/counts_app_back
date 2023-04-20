@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const { checkAdmin } = require('../../helpers/middlewares');
-const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser } = require('../../models/groups.model');
-const { getUserByUsername, findUser } = require('../../models/users.model');
+const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser, findUser } = require('../../models/groups.model');
+const { getUserByUsername } = require('../../models/users.model');
 
 
 router.get('/', async (req, res) => {
@@ -57,21 +57,12 @@ router.post('/newGroup', async (req, res) => {
 });
 
 
-router.post('/:groupId/addUser/:username', checkAdmin(), async (req, res) => {
+router.post('/:groupId/addUser', checkAdmin(), async (req, res) => {
 
 
     try {
 
-
-        const { groupId } = req.params
-        const username = await getUserByUsername(req.body.username)
-        const userId = username[0][0].id
-
-        if (!username) {
-            return res.json('Este usuario no existe, debe registrarse')
-
-        }
-        const addedUser = await addUser(userId, groupId)
+        const addedUser = await addUser(req.body.userId, req.body.groupId)
 
         return res.json(addedUser)
 
@@ -121,11 +112,11 @@ router.delete('/:groupId', checkAdmin(), async (req, res) => {
 });
 
 
-router.get('/edit/:groupId/addUsers', async (req, res) => {
+router.get('/:groupId/search/:word', async (req, res) => {
 
     try {
 
-        const user = await findUser(req.body)
+        const user = await findUser(req.params)
 
         res.json(user[0])
 
@@ -136,6 +127,8 @@ router.get('/edit/:groupId/addUsers', async (req, res) => {
 
 
 })
+
+
 
 
 module.exports = router;
