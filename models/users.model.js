@@ -14,4 +14,8 @@ const getUserByUsername = (username) => {
     return db.query('SELECT users.id FROM counts_app.users WHERE users.username = ?', [username])
 }
 
-module.exports = { create, getByEmail, getUserById, getUserByUsername }
+const findUser = (username) => {
+    return db.query('select users.username from counts_app.users where users.username like %?%;', [username])
+}
+
+module.exports = { create, getByEmail, getUserById, getUserByUsername, findUser }
