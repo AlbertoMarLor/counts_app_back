@@ -69,8 +69,8 @@ const deleteBill = (billId) => {
     return db.query('delete from bills where id = ?', [billId]);
 }
 
-const quantitySum = () => {
-    return db.query('SELECT SUM(users_has_bills.amount) as "suma" from counts_app.users_has_bills;')
+const quantitySum = (userId) => {
+    return db.query('SELECT SUM(users_has_bills.amount) as "suma" from counts_app.users_has_bills WHERE users_id = ?;', [userId])
 }
 
 module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, quantitySum }

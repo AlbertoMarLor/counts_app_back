@@ -58,9 +58,10 @@ router.post('/:groupId/newBill', async (req, res) => {
 
         const [result] = await create(req.body)
         const [newBill] = await getById(result.insertId)
-        const sum = await quantitySum()
+        const sum = await quantitySum(id)
 
-        let amount = sum[0][0].suma
+
+        let amount = Number(newBill[0].quantity) + Number(sum[0][0].suma)
 
 
         await createGroupsHasBills(groupId, newBill[0].id)
