@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, quantitySum } = require('../../models/bills.model');
 const { getUserById } = require('../../models/users.model');
 
 
@@ -51,19 +51,20 @@ router.get('/get/:groupId', async (req, res) => {
 
 
 
-
 router.post('/:groupId/newBill', async (req, res) => {
     try {
         const { groupId } = req.params
-        const { userId } = req.user
+        const { id } = req.user
 
         const [result] = await create(req.body)
         const [newBill] = await getById(result.insertId)
-        const { amount } = newBill
-        const { billId } = newBill
+        const sum = await quantitySum()
+
+        let amount = sum[0][0].suma
+
+
         await createGroupsHasBills(groupId, newBill[0].id)
-        const res = await createUsersHasBills(userId, billId, 'true', amount)
-        console.log(res);
+        await createUsersHasBills(id, newBill[0].id, 1, amount)
 
         return res.json(newBill[0]);
 
