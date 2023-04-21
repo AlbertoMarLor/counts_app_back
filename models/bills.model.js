@@ -37,14 +37,14 @@ const getById = (billId) => {
     return db.query('select * from bills where id = ?', [billId]);
 }
 
-const updateById = (billId, { name, quantity, groups_id }) => {
+const updateById = (billId, { name, quantity, date }) => {
     return db.query(
-        `update bills 
+        `update counts_app.bills 
         set name = ?,
         quantity = ?,
-        groups_id = ?
+        date = ?
         WHERE id = ?`,
-        [name, quantity, groups_id, billId]
+        [name, quantity, date, billId]
     );
 }
 

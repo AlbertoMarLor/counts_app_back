@@ -55,7 +55,7 @@ router.post('/:groupId/newBill', async (req, res) => {
 })
 
 
-router.put('/edit/:billId', async (req, res) => {
+router.put('/edit/:groupId/:billId', async (req, res) => {
     const { billId } = req.params;
     try {
         await updateById(billId, req.body);
@@ -67,7 +67,7 @@ router.put('/edit/:billId', async (req, res) => {
 });
 
 
-router.delete('/:billId', async (req, res) => {
+router.delete('/:groupId/:billId', async (req, res) => {
     const { billId } = req.params;
 
     try {
