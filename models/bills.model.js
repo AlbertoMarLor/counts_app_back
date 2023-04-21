@@ -34,7 +34,7 @@ const createGroupsHasBills = (groups_id, bills_id) => {
 
 
 const getById = (billId) => {
-    return db.query('select * from bills where id = ?', [billId]);
+    return db.query('select * from counts_app.bills where id = ?', [billId]);
 }
 
 const updateById = (billId, { name, quantity, date }) => {

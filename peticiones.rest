@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "sara93@gmail.com",
-    "password": "Sara1234"
+    "email": "Lida@gmail.com",
+    "password": "Lida1"
 }
 
 ###
@@ -97,7 +97,8 @@ GET {{host}}{{urlGroups}}/bills/20
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
 
 ### GET one Bill
-GET {{host}}{{urlBills}}/19
+GET {{host}}{{urlGroups}}/bills/38
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI1MDQ3NjIsImlhdCI6MTY4MjA3Mjc2Mn0.cplQAex9eNi3mQwamn5J0Fu1jtJ2sVa6_9r8n9eK5Vw
 
 ### Create new bill
 POST {{host}}{{urlGroups}}/bills/20/newBill

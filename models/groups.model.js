@@ -63,7 +63,7 @@ const deleteById = (groupId) => {
 }
 
 const findUser = ({ word }) => {
-    console.log(word);
+
     return db.query("SELECT * FROM counts_app.users WHERE users.username LIKE '%" + word + "%'")
 }
 

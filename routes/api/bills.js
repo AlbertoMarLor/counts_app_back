@@ -17,15 +17,16 @@ router.get('/:groupId', async (req, res) => {
 
 
 
-router.get('/:billId', async (req, res) => {
+router.get('/id/:billId', async (req, res) => {
     const { billId } = req.params;
 
     try {
+
         const [result] = await getById(billId)
         if (result.length === 0) {
+
             return res.json({ fatal: 'El gasto que buscas no existe' })
         }
-
         const bill = result[0];
 
         res.json(bill);
