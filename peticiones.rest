@@ -98,19 +98,20 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 
 ### COSAS PENDIENTES: 
 GET {{host}}{{urlGroups}}/bills/20
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0MzIwMDcsImlhdCI6MTY4MjAwMDAwN30.QPtxMwwn_c6nypQDFiiVb0JMIET2qtxZKF0Gi1m8Mvo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
 
 ### GET one Bill
 GET {{host}}{{urlBills}}/19
 
 
 ### Create new bill
-POST {{host}}{{urlBills}}/newBill 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2ODE5MjE2OTEsImlhdCI6MTY4MTQ4OTY5MX0.1fCkktsC2pSW__NEiGfLenu-BTFuWq9udIQyNvKKIIA
+POST {{host}}{{urlGroups}}/bills/20/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
 Content-Type: application/json
 
 {
     "name": "prueba33",
+    "date": "2020-11-01",
     "quantity": 200
    
 
@@ -118,13 +119,15 @@ Content-Type: application/json
 
 
 ### Make changes in a bill
-PUT {{host}}{{urlBills}}/edit/1
+PUT {{host}}{{urlGroups}}/bills/edit/20/38
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
 Content-Type: application/json
 
 {
-    "name": "vuelos",
+    "name": "holii",
     "quantity": 200,
-    "groups_id": 1
+    "date":"2020-11-02"
+    
 }
 
 
