@@ -23,6 +23,13 @@ const getUsersHasGroups = (userId, groupId) => {
     return db.query('SELECT * FROM counts_app.users_has_groups WHERE users_id = ? AND groups_id = ? AND role = "admin"', [userId, groupId])
 }
 
+const getUsersHasBills = (groupId) => {
+    return db.query(`SELECT u.id, u.username as "groupId" FROM counts_app.users as u
+    JOIN counts_app.users_has_groups as uhg ON users_id = u.id
+    JOIN counts_app.groups as g ON g.id = groups_id
+    WHERE g.id = ?`, [groupId]);
+}
+
 const createGroupsHasBills = (groups_id, bills_id) => {
     return db.query(`INSERT INTO counts_app.groups_has_bills
         (groups_id,
@@ -32,6 +39,15 @@ const createGroupsHasBills = (groups_id, bills_id) => {
         [groups_id, bills_id]);
 }
 
+const createUsersHasBills = (users_id, bills_id, creditor, amount) => {
+    return db.query(`INSERT INTO counts_app.users_has_bills
+    (users_id,
+    bills_id,
+    creditor,
+    amount)
+    VALUES(?,?,?,?)`, [users_id, bills_id, creditor, amount])
+
+}
 
 const getById = (billId) => {
     return db.query('select * from counts_app.bills where id = ?', [billId]);
@@ -54,4 +70,4 @@ const deleteBill = (billId) => {
 }
 
 
-module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills }
+module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills }
