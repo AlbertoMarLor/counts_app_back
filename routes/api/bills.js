@@ -2,7 +2,9 @@ const router = require('express').Router();
 
 
 const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount } = require('../../models/bills.model');
-const { getUserById } = require('../../models/users.model');
+const { getUsersFromGroup, countGroupMembers } = require('../../models/groups.model');
+const { checkAdmin } = require('../../helpers/middlewares');
+
 
 
 router.get('/:groupId', async (req, res) => {
@@ -52,9 +54,32 @@ router.get('/get/:groupId', async (req, res) => {
 router.get('/totalAmount/:groupId', async (req, res) => {
     const { groupId } = req.params;
     try {
-        const [totalAmount] = await getTotalAmount(groupId)
+        const [totalAmount] = await getTotalAmount(groupId);
         res.json(totalAmount);
         console.log(totalAmount);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
+
+router.get('/amount/:groupId/%/users', async (req, res) => {
+    const { groupId } = req.params;
+    try {
+        const [totalAmount] = await getTotalAmount(groupId);
+        const [deptors] = await getUsersFromGroup(groupId)
+        const [nMembers] = await countGroupMembers(groupId);
+        const memberDebt = totalAmount / nMembers;
+        let result = { username: '', dept: 0 }
+
+        /*  const creditor = checkAdmin;
+         if(!creditor){
+            for(let deptor of deptors ){
+             result = {username: deptor.username, dept: memberDebt}
+            }
+            return result;
+         } 
+         const totalDebt =  totalAmount - memberDebt; */
+
     } catch (error) {
         res.json({ fatal: error.message })
     }
@@ -62,7 +87,7 @@ router.get('/totalAmount/:groupId', async (req, res) => {
 
 
 
-router.post('/:groupId/newBill', async (req, res) => {
+router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
     try {
         const { groupId } = req.params
         const { id } = req.user
@@ -85,7 +110,7 @@ router.post('/:groupId/newBill', async (req, res) => {
 })
 
 
-router.put('/edit/:groupId/:billId', async (req, res) => {
+router.put('/edit/:groupId/:billId', checkAdmin(), async (req, res) => {
     const { billId } = req.params;
     try {
         await updateById(billId, req.body);
@@ -97,7 +122,7 @@ router.put('/edit/:groupId/:billId', async (req, res) => {
 });
 
 
-router.delete('/:groupId/:billId', async (req, res) => {
+router.delete('/:groupId/:billId', checkAdmin(), async (req, res) => {
     const { billId } = req.params;
 
     try {

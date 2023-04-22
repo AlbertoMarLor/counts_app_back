@@ -12,10 +12,16 @@ const getUsersFromGroup = (groupId) => {
     WHERE g.id = ?;`, [groupId]);
 }
 
+const countGroupMembers = (groupId) => {
+    return db.query(`SELECT COUNT(u.id) as "totalMembers" FROM counts_app.users as u
+    JOIN counts_app.users_has_groups as uhg ON users_id = u.id
+    JOIN counts_app.groups as g ON g.id = groups_id
+    WHERE g.id = ? GROUP BY g.id;`, [groupId]);
+}
+
 const getGroupById = (groupId) => {
     return db.query('select * from counts_app.groups where id = ?',
-        [groupId]
-    )
+        [groupId]);
 }
 
 const createUsersHasGroups = (userId, groupId) => {
@@ -76,4 +82,4 @@ const findUser = ({ word }) => {
 
 
 
-module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser, findUser, getUsersFromGroup }
+module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser, findUser, getUsersFromGroup, countGroupMembers }
