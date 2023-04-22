@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "Lida@gmail.com",
-    "password": "Lida1"
+    "email": "fran@gmail.com",
+    "password": "Fran1"
 }
 
 ###
@@ -103,7 +103,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2
 ###
 
 GET {{host}}{{urlGroups}}/bills/get/20
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI1MDY2OTAsImlhdCI6MTY4MjA3NDY5MH0.fspza1fZVT_4RHIGl2Zy62Cm3Gu__tT7racAZPXsAFU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI1MTA0MTksImlhdCI6MTY4MjA3ODQxOX0.V5Sn3IcbVu4J8EpDmBHE8JvdS-gitFMVPgG8Usr8UwY
+
 
 ### Create new bill
 POST {{host}}{{urlGroups}}/bills/20/newBill
@@ -111,7 +112,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2
 Content-Type: application/json
 
 {
-    "name": "prueba33",
+    "name": "prueba14",
     "date": "2020-11-01",
     "quantity": 200
    
