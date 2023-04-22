@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, quantitySum } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount } = require('../../models/bills.model');
 const { getUserById } = require('../../models/users.model');
 
 
@@ -47,6 +47,17 @@ router.get('/get/:groupId', async (req, res) => {
         res.json({ fatal: error.message })
     }
 
+})
+
+router.get('/totalAmount/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    try {
+        const [totalAmount] = await getTotalAmount(groupId)
+        res.json(totalAmount);
+        console.log(totalAmount);
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
 })
 
 

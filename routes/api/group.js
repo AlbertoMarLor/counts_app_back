@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 const { checkAdmin } = require('../../helpers/middlewares');
-const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser, findUser, getUsersByGroup } = require('../../models/groups.model');
-const { getUserByUsername } = require('../../models/users.model');
+const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser, findUser, getUsersFromGroup } = require('../../models/groups.model');
+
 
 
 router.get('/', async (req, res) => {
@@ -33,9 +33,20 @@ router.get('/:groupId', async (req, res) => {
     }
 
 
-
-
 });
+
+
+router.get('/id/:groupId/users', async (req, res) => {
+
+    const { groupId } = req.params;
+    try {
+        const [users] = await getUsersFromGroup(groupId);
+        res.json(users);
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+
+})
 
 
 router.post('/newGroup', async (req, res) => {
@@ -59,14 +70,9 @@ router.post('/newGroup', async (req, res) => {
 
 router.post('/:groupId/addUser', checkAdmin(), async (req, res) => {
 
-
     try {
-
         const addedUser = await addUser(req.body.userId, req.body.groupId)
-
         return res.json(addedUser)
-
-
 
 
     } catch (error) {

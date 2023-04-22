@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "Lida@gmail.com",
-    "password": "Lida1"
+    "email": "gerard@gmail.com",
+    "password": "Gerard1"
 }
 
 ###
@@ -43,6 +43,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2
 
 GET {{host}}{{urlGroups}}/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
+
+###
+GET {{host}}{{urlGroups}}/id/4/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNTg1MjAxLCJpYXQiOjE2ODIxNTMyMDF9.3rxPH2J1AQhofjwaMqF62YagpVKXTR2ms44QJImvj_o
+
+
+
 ###
 
 POST {{host}}{{urlGroups}}/newGroup
@@ -59,11 +66,11 @@ Content-Type: application/json
 
 ###
 POST {{host}}{{urlGroups}}/4/adduser
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2ODI0MzkxMjUsImlhdCI6MTY4MjAwNzEyNX0.chFOiO0C82WFWmtSiISdZlLOJDkHOjBR06oo2i-zvds
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNTg2NjI2LCJpYXQiOjE2ODIxNTQ2MjZ9.KEB0NgEPaKPAWPfmPLFa8Hz2nbsha68HQJSO2nVQWcI
 Content-Type: application/json
 
 {
-    "username": "juanan"    
+    "username": "sara93"    
 }
 
 
@@ -103,6 +110,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2
 
 GET {{host}}{{urlGroups}}/bills/get/20
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI1MTA0MTksImlhdCI6MTY4MjA3ODQxOX0.V5Sn3IcbVu4J8EpDmBHE8JvdS-gitFMVPgG8Usr8UwY
+
+###
+GET {{host}}{{urlGroups}}/bills/totalAmount/9
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNTg2NjI2LCJpYXQiOjE2ODIxNTQ2MjZ9.KEB0NgEPaKPAWPfmPLFa8Hz2nbsha68HQJSO2nVQWcI
 
 
 ### Create new bill
