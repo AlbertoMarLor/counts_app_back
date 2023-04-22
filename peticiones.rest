@@ -21,8 +21,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "fran@gmail.com",
-    "password": "Fran1"
+    "email": "Lida@gmail.com",
+    "password": "Lida1"
 }
 
 ###
@@ -83,8 +83,7 @@ Content-Type: application/json
 DELETE {{host}}{{urlGroups}}/24
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzMyOTQsImlhdCI6MTY4MTc0MTI5NH0.qjizAAcDQlxVvGu8Y5dwJT0SXhPM-yIrtXSCTGdwmrE
 
-
-
+###
 
 
 

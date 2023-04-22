@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const { checkAdmin } = require('../../helpers/middlewares');
-const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser, findUser } = require('../../models/groups.model');
+const { getAll, deleteById, getGroupById, create, updateById, createUsersHasGroups, addUser, findUser, getUsersByGroup } = require('../../models/groups.model');
 const { getUserByUsername } = require('../../models/users.model');
 
 
@@ -127,7 +127,6 @@ router.get('/:groupId/search/:word', async (req, res) => {
 
 
 })
-
 
 
 
