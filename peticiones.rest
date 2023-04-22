@@ -83,8 +83,7 @@ Content-Type: application/json
 DELETE {{host}}{{urlGroups}}/24
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODIxNzMyOTQsImlhdCI6MTY4MTc0MTI5NH0.qjizAAcDQlxVvGu8Y5dwJT0SXhPM-yIrtXSCTGdwmrE
 
-
-
+###
 
 
 
@@ -97,8 +96,14 @@ GET {{host}}{{urlGroups}}/bills/20
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
 
 ### GET one Bill
-GET {{host}}{{urlGroups}}/bills/38
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI1MDQ3NjIsImlhdCI6MTY4MjA3Mjc2Mn0.cplQAex9eNi3mQwamn5J0Fu1jtJ2sVa6_9r8n9eK5Vw
+GET {{host}}{{urlGroups}}/bills/id/38
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI1MDY2OTAsImlhdCI6MTY4MjA3NDY5MH0.fspza1fZVT_4RHIGl2Zy62Cm3Gu__tT7racAZPXsAFU
+
+###
+
+GET {{host}}{{urlGroups}}/bills/get/20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI1MTA0MTksImlhdCI6MTY4MjA3ODQxOX0.V5Sn3IcbVu4J8EpDmBHE8JvdS-gitFMVPgG8Usr8UwY
+
 
 ### Create new bill
 POST {{host}}{{urlGroups}}/bills/20/newBill
@@ -106,7 +111,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2
 Content-Type: application/json
 
 {
-    "name": "prueba33",
+    "name": "prueba14",
     "date": "2020-11-01",
     "quantity": 200
    

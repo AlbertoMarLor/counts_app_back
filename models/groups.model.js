@@ -67,4 +67,6 @@ const findUser = ({ word }) => {
     return db.query("SELECT * FROM counts_app.users WHERE users.username LIKE '%" + word + "%'")
 }
 
+
+
 module.exports = { getAll, create, deleteById, getGroupById, updateById, createUsersHasGroups, addUser, findUser }

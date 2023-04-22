@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, quantitySum } = require('../../models/bills.model');
 const { getUserById } = require('../../models/users.model');
 
 
@@ -35,17 +35,35 @@ router.get('/id/:billId', async (req, res) => {
     }
 })
 
+router.get('/get/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    try {
+        const [result] = await getUsersHasBills(groupId)
+        if (result.length === 0) {
+            return res.json({ fatal: 'This group has no bills' })
+        }
+        res.json(result);
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+
+})
 
 
 
 router.post('/:groupId/newBill', async (req, res) => {
     try {
         const { groupId } = req.params
+        const { id } = req.user
 
         const [result] = await create(req.body)
         const [newBill] = await getById(result.insertId)
 
+        console.log(newBill);
+
+
         await createGroupsHasBills(groupId, newBill[0].id)
+        await createUsersHasBills(id, newBill[0].id, 1, newBill[0].quantity)
 
         return res.json(newBill[0]);
 
