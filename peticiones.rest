@@ -48,7 +48,7 @@ GET {{host}}{{urlGroups}}/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2ODE5MDM0MzksImlhdCI6MTY4MTQ3MTQzOX0.qeXAwFMjbtC-3FbJYHFlL-4lH7RXJtbI5BT68SKMVDk
 
 ###
-GET {{host}}{{urlGroups}}/id/4/users
+GET {{host}}{{urlGroups}}/id/39/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNTg1MjAxLCJpYXQiOjE2ODIxNTMyMDF9.3rxPH2J1AQhofjwaMqF62YagpVKXTR2ms44QJImvj_o
 
 
@@ -61,7 +61,7 @@ Content-Type: application/json
 
 {
 "name": "nuevoGrupo",
-"date": "2023-04-14 11:00:00",
+"date": "1992-06-07 11:00:00",
 "description":"estos son gastos de sdfbsduf"
 
 
@@ -120,13 +120,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjox
 
 
 ### Create new bill
-POST {{host}}{{urlGroups}}/bills/20/newBill
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
+POST {{host}}{{urlGroups}}/bills/39/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2OTEwNDgsImlhdCI6MTY4MjI1OTA0OH0.a5HpSusqnsRhhSbWL8WoXJwDCIz9TG0DOEg59S7yTIA
 Content-Type: application/json
 
 {
-    "name": "prueba14",
-    "date": "2020-11-01",
+    "name": "prueba17",
+    "date": "1992-11-01 11:00:00",
     "quantity": 200
    
 

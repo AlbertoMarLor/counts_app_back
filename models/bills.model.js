@@ -5,13 +5,14 @@ const getAll = (groupId) => {
     WHERE g.id = ?;`, [groupId]);
 }
 
-const create = ({ name, quantity }) => {
+const create = ({ name, date, quantity }) => {
     return db.query(`INSERT INTO counts_app.bills
     (name,
+    date,
     quantity)
     VALUES
-    (?,?)`,
-        [name, quantity]
+    (?,?,?)`,
+        [name, date, quantity]
     );
 }
 

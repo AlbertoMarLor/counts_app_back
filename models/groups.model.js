@@ -6,7 +6,7 @@ const getAll = (userId) => {
 }
 
 const getUsersFromGroup = (groupId) => {
-    return db.query(`SELECT u.id, u.username FROM counts_app.users as u
+    return db.query(`SELECT u.id, u.username, uhg.role FROM counts_app.users as u
     JOIN counts_app.users_has_groups as uhg ON users_id = u.id
     JOIN counts_app.groups as g ON g.id = groups_id
     WHERE g.id = ?;`, [groupId]);
