@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount, findBillByName } = require('../../models/bills.model');
 const { getUsersFromGroup, countGroupMembers } = require('../../models/groups.model');
 const { checkAdmin } = require('../../helpers/middlewares');
 
@@ -85,7 +85,17 @@ router.get('/amount/:groupId/%/users', async (req, res) => {
     }
 })
 
+//TODO  DRAMA DE BUSQUEDA SEMANTICA
 
+router.get('/find/:groupId/:word', async (req, res) => {
+    try {
+        const bill = await findBillByName(req.params)
+        res.json(bill[0]);
+
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
 
 router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
     try {
@@ -137,6 +147,8 @@ router.delete('/:groupId/:billId', checkAdmin(), async (req, res) => {
         res.json({ fatal: error.message });
     }
 })
+
+
 
 
 module.exports = router;

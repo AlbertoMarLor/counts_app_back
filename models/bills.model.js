@@ -76,4 +76,8 @@ const getTotalAmount = (groupId) => {
     where g.id = ?;`, [groupId])
 }
 
-module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount }
+const findBillByName = ({ letter }) => {
+    return db.query("select * from counts_app.bills WHERE bills.name LIKE '% " + letter + "%'");
+}
+
+module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, createUsersHasBills, getTotalAmount, findBillByName }
