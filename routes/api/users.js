@@ -1,9 +1,19 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { createToken } = require('../../helpers/utils');
-const { create, getByEmail, findUser } = require('../../models/users.model')
+const { create, getByEmail, findUser, getUsers } = require('../../models/users.model')
+const { checkToken } = require('../../helpers/middlewares')
 
+router.get('/', checkToken, async (req, res) => {
+    try {
 
+        const { username } = req.user
+
+        res.json(username)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+});
 
 //POST /api/usuarios/registro
 router.post('/register', async (req, res) => {

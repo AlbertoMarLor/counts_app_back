@@ -7,6 +7,9 @@
 
 ########### USERS ############
 
+GET {{host}}{{urlUsers}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2NzM5NTAsImlhdCI6MTY4MjI0MTk1MH0.f_25ehp9LUCf6Q7CSUFmLXYEoI4gOzAHW3mWGpK-cm8
+
 POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
 
@@ -21,8 +24,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "gerard@gmail.com",
-    "password": "Gerard1"
+    "email": "Lida@gmail.com",
+    "password": "Lida1"
 }
 
 ###
@@ -131,8 +134,8 @@ Content-Type: application/json
 
 
 ### Make changes in a bill
-PUT {{host}}{{urlGroups}}/bills/edit/20/38
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2ODI0OTY0MDAsImlhdCI6MTY4MjA2NDQwMH0.R0yKRK5TJs3s1IfTm5zPXQkpUkv41srJNFoX40prLNU
+PUT {{host}}{{urlGroups}}/bills/edit/42/105
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2NjgyMjcsImlhdCI6MTY4MjIzNjIyN30.x6z4U69yXv5iu-2VUGXhbAhyk4pj59TclYBA11gM5dg
 Content-Type: application/json
 
 {
@@ -144,4 +147,5 @@ Content-Type: application/json
 
 
 ### DELETE one bill
-DELETE {{host}}{{urlBills}}/15
+DELETE {{host}}{{urlGroups}}/bills/42/105
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2NjgyMjcsImlhdCI6MTY4MjIzNjIyN30.x6z4U69yXv5iu-2VUGXhbAhyk4pj59TclYBA11gM5dg
