@@ -145,6 +145,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjox
 POST {{host}}{{urlGroups}}/bills/9/newBill
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzU1ODgyLCJpYXQiOjE2ODIzMjM4ODJ9.9cNjBfKO_87XsFPQ8lo2Zc9hMQnA8tafQK_iCH08kLM
 Content-Type: application/json
+SELECT o.quantity, o.users_username FROM counts_app.operations as o
+JOIN counts_app.users as u ON u.id = o.users_id
+JOIN counts_app.groups as g ON g.id = o.group_id
+WHERE u.id = 7;
 
 {
     "name": "prueba36",
