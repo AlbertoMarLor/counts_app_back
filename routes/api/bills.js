@@ -211,6 +211,7 @@ router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
                     //console.log(res2)
                 }
             } else {
+
                 let [inicialQuantity] = await quantityOperations(member.id)
 
                 let inicial = (Number(inicialQuantity[0].quantity))

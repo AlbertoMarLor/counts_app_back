@@ -148,7 +148,7 @@ Content-Type: application/json
 
 
 {
-    "name": "prueba92",
+    "name": "prueba95",
     "date": "2021-11-01",
     "quantity": 100
    
