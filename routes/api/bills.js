@@ -154,13 +154,52 @@ router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
 
         //Lo que debe cada participante del grupo
         let memberDebt = suma / totalMembers;
-        //Lo que tiene que cobrar el acreedor (admin del grupo)
-        let totalDept = suma - memberDebt;
 
+
+
+        /*  for (let member of members) {
+             let [user] = await getUserById(member.id)
+             //console.log(user[0].id, member.id)
+             if (user[0].id !== member.id) {
+ 
+                 if (member.role !== admin) {
+                     return await operations(member.id, member.username, memberDebt, groupId)
+                     //console.log(res2)
+                 }
+ 
+             } else {
+                 //let [totalAmount] = await getTotalAmount(groupId);
+                 let [inicialQuantity] = await quantityOperations(member.id)
+ 
+                 let inicial = (Number(inicialQuantity[0].quantity))
+                 console.log(inicial)
+ 
+                 const divisionBill = addBill / totalMembers
+ 
+                 const deptDeptors = divisionBill * (totalMembers - 1)
+ 
+                 //Lo que tiene que cobrar el acreedor (admin del grupo)
+                 //let totalDept = inicial - divisionBill + deptDeptors;
+                 //console.log(inicial, '-', divisionBill, '+', deptDeptors, '=', totalDept)
+                 if (member.role === admin) {
+                     await updateOperations(totalDept)
+ 
+ 
+ 
+                 } else {
+                     await updateOperations(divisionBill)
+                     console.log(divisionBill)
+                 }
+ 
+             }
+         } */
+
+
+        //SOLUCION 1:
 
         for (let member of members) {
             let [user] = await getUserById(member.id)
-            //console.log(user[0].id, member.id)
+
             if (user[0].id !== member.id) {
 
                 if (member.role === admin) {
@@ -172,7 +211,6 @@ router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
                     //console.log(res2)
                 }
             } else {
-                //let [totalAmount] = await getTotalAmount(groupId);
                 let [inicialQuantity] = await quantityOperations(member.id)
 
                 let inicial = (Number(inicialQuantity[0].quantity))
@@ -180,7 +218,7 @@ router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
 
                 const divisionBill = addBill / totalMembers
 
-                const deptDeptors = divisionBill * (totalMembers - 1)
+                const deptDeptors = inicial + (divisionBill * (totalMembers - 1))
 
                 //Lo que tiene que cobrar el acreedor (admin del grupo)
                 let totalDept = inicial - divisionBill + deptDeptors;
@@ -191,8 +229,9 @@ router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
 
 
                 } else {
-                    await updateOperations(divisionBill)
-                    console.log(divisionBill)
+                    const total = inicial + divisionBill
+                    await updateOperations(total)
+                    console.log(total)
                 }
 
             }
