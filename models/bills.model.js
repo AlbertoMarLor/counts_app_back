@@ -32,6 +32,18 @@ const getOperations = (groupId) => {
     WHERE g.id = ?`, [groupId]);
 }
 
+const quantityOperations = (userId) => {
+    return db.query(`SELECT o.quantity FROM counts_app.operations as o
+    JOIN counts_app.users as u ON u.id = o.users_id
+    JOIN counts_app.groups as g ON g.id = o.group_id
+    WHERE u.id = ?;`, [userId])
+}
+
+const updateOperations = (quantity, groupId) => {
+    return db.query(`update counts_app.operations 
+        set quantity = ?`, [quantity, groupId])
+}
+
 const getAdmin = () => {
     return db.query(`SELECT * from counts_app.users, counts_app.users_has_groups WHERE users.id = users_has_groups.users_id AND role = admin`)
 }
@@ -70,6 +82,8 @@ const getById = (billId) => {
     return db.query('select * from counts_app.bills where id = ?', [billId]);
 }
 
+
+
 const updateById = (billId, { name, quantity, date }) => {
     return db.query(
         `update counts_app.bills 
@@ -97,7 +111,6 @@ const getTotalAmount = (groupId) => {
 const findBillByName = ({ word }) => {
     console.log(word)
     return db.query("select * from counts_app.bills WHERE bills.name LIKE '%" + word + "%'");
-
 }
 
-module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName, operations, getOperations }
+module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName, operations, getOperations, updateOperations, quantityOperations }
