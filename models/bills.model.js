@@ -16,6 +16,22 @@ const create = ({ name, date, quantity }) => {
     );
 }
 
+const operations = (id, username, quantity, groupId) => {
+    return db.query(`INSERT INTO counts_app.operations
+    (users_id,
+    users_username,
+    quantity,
+    group_id)
+    VALUES
+    (?,?,?,?)`, [id, username, quantity, groupId]);
+}
+
+const getOperations = (groupId) => {
+    return db.query(`SELECT o.users_id, o.users_username, o.quantity, o.group_id FROM counts_app.operations as o
+    JOIN counts_app.groups as g ON g.id = o.group_id
+    WHERE g.id = ?`, [groupId]);
+}
+
 const getAdmin = () => {
     return db.query(`SELECT * from counts_app.users, counts_app.users_has_groups WHERE users.id = users_has_groups.users_id AND role = admin`)
 }
@@ -84,4 +100,4 @@ const findBillByName = ({ word }) => {
 
 }
 
-module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName }
+module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName, operations, getOperations }

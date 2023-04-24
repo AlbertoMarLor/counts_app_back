@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { getById, deleteBill, getAll, create, updateById, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName } = require('../../models/bills.model');
+const { getById, deleteBill, getAll, create, updateById, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName, operations, getOperations } = require('../../models/bills.model');
 const { getUsersFromGroup, countGroupMembers } = require('../../models/groups.model');
 const { checkAdmin } = require('../../helpers/middlewares');
 
@@ -62,23 +62,39 @@ router.get('/totalAmount/:groupId', async (req, res) => {
     }
 })
 
-router.get('/amount/:groupId/%/users', async (req, res) => {
+router.get('/amount/debts/:groupId/users', checkAdmin(), async (req, res) => {
     const { groupId } = req.params;
     try {
         const [totalAmount] = await getTotalAmount(groupId);
-        const [deptors] = await getUsersFromGroup(groupId)
+        const [members] = await getUsersFromGroup(groupId)
         const [nMembers] = await countGroupMembers(groupId);
-        const memberDebt = totalAmount / nMembers;
-        let result = { username: '', dept: 0 }
+        const admin = req.admin[0].role;
 
-        /*  const creditor = checkAdmin;
-         if(!creditor){
-            for(let deptor of deptors ){
-             result = {username: deptor.username, dept: memberDebt}
+
+        const { suma } = totalAmount[0];
+        const { totalMembers } = nMembers[0]
+
+        //Lo que debe cada participante del grupo
+        const memberDebt = suma / totalMembers;
+        //Lo que tiene que cobrar el acreedor (admin del grupo)
+        const totalDept = suma - memberDebt;
+
+
+        for (let member of members) {
+            console.log(member)
+            if (member.role === admin) {
+                const res = await operations(member.id, member.username, totalDept, groupId)
+                console.log(res)
+
+            } else {
+                const res2 = await operations(member.id, member.username, memberDebt, groupId)
+                console.log(res2)
             }
-            return result;
-         } 
-         const totalDebt =  totalAmount - memberDebt; */
+        }
+
+        const [finalOperations] = await getOperations(groupId)
+        return res.json(finalOperations)
+
 
     } catch (error) {
         res.json({ fatal: error.message })
@@ -100,25 +116,20 @@ router.get('/search/:groupId/:word', async (req, res) => {
 router.post('/:groupId/newBill', checkAdmin(), async (req, res) => {
     try {
         const { groupId } = req.params;
-        const { id } = req.user;
         const admin = req.admin[0].role;
 
         const [result] = await create(req.body);
         const [newBill] = await getById(result.insertId);
         const [membersGroup] = await getUsersFromGroup(groupId);
 
-        //console.log(membersGroup);
-        //console.log(admin)
-
         await createGroupsHasBills(groupId, newBill[0].id)
         for (let member of membersGroup) {
-            //console.log(member.role)
             if (member.role === admin) {
-                const res1 = await creditorUsersHasBills(member.id, newBill[0].id, 1, newBill[0].quantity)
+                await creditorUsersHasBills(member.id, newBill[0].id, 1, newBill[0].quantity)
 
 
             } else {
-                const res2 = await creditorUsersHasBills(member.id, newBill[0].id, 0, newBill[0].quantity)
+                await creditorUsersHasBills(member.id, newBill[0].id, 0, newBill[0].quantity)
             }
 
 

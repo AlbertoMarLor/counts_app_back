@@ -125,6 +125,22 @@ GET {{host}}{{urlGroups}}/bills/totalAmount/9
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNTg2NjI2LCJpYXQiOjE2ODIxNTQ2MjZ9.KEB0NgEPaKPAWPfmPLFa8Hz2nbsha68HQJSO2nVQWcI
 
 
+
+
+
+
+
+### GET debts groups
+GET {{host}}{{urlGroups}}/bills/amount/debts/9/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzc0NzQ0LCJpYXQiOjE2ODIzNDI3NDR9.V4hbxLaotdrfG1gYKUboCCa8LSbmvwGsGNo4WnHoOik
+
+
+
+
+
+
+
+
 ### Create new bill
 POST {{host}}{{urlGroups}}/bills/9/newBill
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzU1ODgyLCJpYXQiOjE2ODIzMjM4ODJ9.9cNjBfKO_87XsFPQ8lo2Zc9hMQnA8tafQK_iCH08kLM
