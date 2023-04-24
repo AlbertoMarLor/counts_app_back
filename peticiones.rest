@@ -24,8 +24,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "Lida@gmail.com",
-    "password": "Lida1"
+    "email": "gerard@gmail.com",
+    "password": "Gerard1"
 }
 
 ###
@@ -109,6 +109,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE2
 GET {{host}}{{urlGroups}}/bills/id/38
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI1MDY2OTAsImlhdCI6MTY4MjA3NDY5MH0.fspza1fZVT_4RHIGl2Zy62Cm3Gu__tT7racAZPXsAFU
 
+### GET BILL by name
+
+GET {{host}}{{urlGroups}}/bills/search/9/bi
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzYzODM2LCJpYXQiOjE2ODIzMzE4MzZ9.pPVdwHoUqJBupzkcEGTnkC_O9Lw29GkSKgBOXtpOQWo
+
+
 ###
 
 GET {{host}}{{urlGroups}}/bills/get/20
@@ -120,14 +126,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjox
 
 
 ### Create new bill
-POST {{host}}{{urlGroups}}/bills/39/newBill
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2OTEwNDgsImlhdCI6MTY4MjI1OTA0OH0.a5HpSusqnsRhhSbWL8WoXJwDCIz9TG0DOEg59S7yTIA
+POST {{host}}{{urlGroups}}/bills/9/newBill
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzU1ODgyLCJpYXQiOjE2ODIzMjM4ODJ9.9cNjBfKO_87XsFPQ8lo2Zc9hMQnA8tafQK_iCH08kLM
 Content-Type: application/json
 
 {
-    "name": "prueba17",
-    "date": "1992-11-01 11:00:00",
-    "quantity": 200
+    "name": "prueba36",
+    "date": "2021-11-01",
+    "quantity": 100
    
 
 }
