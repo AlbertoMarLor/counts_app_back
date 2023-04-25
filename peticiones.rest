@@ -8,7 +8,12 @@
 ########### USERS ############
 
 GET {{host}}{{urlUsers}}
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2ODI2NzM5NTAsImlhdCI6MTY4MjI0MTk1MH0.f_25ehp9LUCf6Q7CSUFmLXYEoI4gOzAHW3mWGpK-cm8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyODc4NjQzLCJpYXQiOjE2ODI0NDY2NDN9.zdbmeTP8k2LM26Yt5QybW_BZaRIlad6MGEL98iVr0ao
+
+
+###
+GET {{host}}{{urlUsers}}/get/role/10
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMSwiZXhwIjoxNjgyODgxNzEyLCJpYXQiOjE2ODI0NDk3MTJ9.HpECl1FBclMNChh-RBHgaOjtaFs27Z9bZ5-TR3kZ1rw
 
 POST {{host}}{{urlUsers}}/register
 Content-Type: application/json
@@ -24,8 +29,8 @@ POST {{host}}{{urlUsers}}/login
 Content-Type: application/json
 
 {
-    "email": "gerard@gmail.com",
-    "password": "Gerard1"
+    "email": "javier@gmail.com",
+    "password": "Javier1"
 }
 
 ###
