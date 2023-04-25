@@ -95,8 +95,10 @@ router.get('/amount/debts/:groupId/users', checkAdmin(), async (req, res) => {
 
 
 router.get('/search/:groupId/:word', async (req, res) => {
+    const { groupId } = req.params;
+
     try {
-        const bill = await findBillByName(req.params)
+        const bill = await findBillByName(req.params, groupId)
         res.json(bill[0]);
 
     } catch (error) {
