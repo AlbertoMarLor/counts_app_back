@@ -63,17 +63,11 @@ router.get('/totalAmount/:groupId', async (req, res) => {
     }
 })
 
-router.get('/getTotalDebt/:groupId', checkAdmin(), async (req, res) => {
+router.get('/getTotalDebt/:groupId', async (req, res) => {
     const { groupId } = req.params;
     console.log(req.admin)
 
     try {
-
-        const admin = req.admin[0].role;
-        const [membersGroup] = await getUsersFromGroup(groupId);
-        //total de las bills del grupo
-        const [totalAmount] = await getTotalAmount(groupId);
-
         //lo que debe cada miembro
         const [totalDebt] = await getTotalMemberDebt(groupId);
 
