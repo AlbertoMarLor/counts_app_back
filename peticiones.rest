@@ -135,7 +135,9 @@ GET {{host}}{{urlGroups}}/bills/amount/debts/9/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzc0NzQ0LCJpYXQiOjE2ODIzNDI3NDR9.V4hbxLaotdrfG1gYKUboCCa8LSbmvwGsGNo4WnHoOik
 
 
-
+### GET totalMemberDebt
+GET {{host}}{{urlGroups}}/bills/getTotalDebt/9
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjgyNzc0NzQ0LCJpYXQiOjE2ODIzNDI3NDR9.V4hbxLaotdrfG1gYKUboCCa8LSbmvwGsGNo4WnHoOik
 
 
 
@@ -148,7 +150,7 @@ Content-Type: application/json
 
 
 {
-    "name": "prueba95",
+    "name": "prueba103",
     "date": "2021-11-01",
     "quantity": 100
    
