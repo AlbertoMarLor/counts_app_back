@@ -120,9 +120,11 @@ const getTotalMemberDebt = (groupId) => {
     where g.id = ?;`, [groupId])
 }
 
-const findBillByName = ({ word }) => {
+const findBillByName = ({ word }, groupId) => {
     console.log(word)
-    return db.query("select * from counts_app.bills WHERE bills.name LIKE '%" + word + "%'");
+    return db.query("select b.id, b.name, b.quantity, b.date from counts_app.bills as b JOIN counts_app.groups_has_bills as ghb ON ghb.bills_id = b.id JOIN counts_app.groups as g ON g.id = ghb.groups_id WHERE b.name LIKE '%" + word + "%' and g.id = ?", [groupId])
+
+    /* "select * from counts_app.bills WHERE bills.name LIKE '%" + word + "%'" */
 }
 
 module.exports = { getById, deleteBill, getAll, create, updateById, getAdmin, getUsersHasGroups, createGroupsHasBills, getUsersHasBills, creditorUsersHasBills, getTotalAmount, findBillByName, updateMemberDebt, getTotalMemberDebt, operations, getOperations, quantityOperations, updateOperations }
